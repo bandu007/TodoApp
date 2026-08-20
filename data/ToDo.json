@@ -1,0 +1,27 @@
+[
+  {
+    "ID": "1",
+    "Task": "Need to complete the programming assignment",
+    "Completed": false
+  },
+  {
+    "ID": "2",
+    "Task": "Have a meeting with the client tomorrow",
+    "Completed": false
+  },
+  {
+    "ID": "3",
+    "Task": "Need to start applying for jobs",
+    "Completed": false
+  },
+  {
+    "ID": "4",
+    "Task": "Need to setup the alarm",
+    "Completed": false
+  },
+  {
+    "ID": "5",
+    "Task": "Assignment submission is still pending",
+    "Completed": false
+  }
+]
