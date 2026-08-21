@@ -10,7 +10,7 @@ const cors = require('cors')
 
 dbConnection()
 
-app.use(cors())
+app.use(cors( { origin : 'https://todoapp-frontweb.netlify.app/' }))
 
 app.use(express.json());
 
