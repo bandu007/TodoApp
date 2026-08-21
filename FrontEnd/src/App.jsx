@@ -3,7 +3,7 @@ import { TodoProvider } from './context'
 import './App.css'
 import { TodoForm, TodoItem } from './components'
 
-const URL = 'https://todoapp-pzsh.onrender.com'
+const URL = 'https://todoapp-pzsh.onrender.com/Todolist'
 
 function App() {
 
@@ -41,7 +41,7 @@ function App() {
   const updateTodo = (id,Todo)=>{
     
     setTodos((prev)=>prev.map((prevTodo)=>(prevTodo.id === id ? Todo :prevTodo)))
-    fetch(URL`/${Todo.id}`,{
+    fetch(URL+`/${Todo.id}`,{
       method:"PUT",
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify({
@@ -67,7 +67,7 @@ function App() {
   const deleteTodo =(id)=>{
     setTodos((prev)=>prev.filter((each)=>each.id !== id))
 
-    fetch(URL`/${id}`,
+    fetch(URL+`/${id}`,
       { method:"DELETE",
         headers:{"Content-Type":"application/json"}})
         .then((response)=>{
@@ -88,7 +88,7 @@ function App() {
     {...prevTodo, completed: !prevTodo.completed}
     :prevTodo))
 
-    fetch(URL`/${id}`,
+    fetch(URL+`/${id}`,
       { method:"PATCH",
         headers:{"Content-Type":"application/json"}})
         .then((response)=>{
