@@ -3,6 +3,8 @@ import { TodoProvider } from './context'
 import './App.css'
 import { TodoForm, TodoItem } from './components'
 
+const URL = 'https://todoapp-pzsh.onrender.com'
+
 function App() {
 
   const [todos,setTodos] = useState([])
@@ -13,7 +15,7 @@ function App() {
     
 
 
-    fetch('http://localhost:8000/Todolist',{
+    fetch(URL,{
       method:"POST",
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify({
@@ -39,7 +41,7 @@ function App() {
   const updateTodo = (id,Todo)=>{
     
     setTodos((prev)=>prev.map((prevTodo)=>(prevTodo.id === id ? Todo :prevTodo)))
-    fetch(`http://localhost:8000/Todolist/${Todo.id}`,{
+    fetch(URL`/${Todo.id}`,{
       method:"PUT",
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify({
@@ -65,7 +67,7 @@ function App() {
   const deleteTodo =(id)=>{
     setTodos((prev)=>prev.filter((each)=>each.id !== id))
 
-    fetch(`http://localhost:8000/Todolist/${id}`,
+    fetch(URL`/${id}`,
       { method:"DELETE",
         headers:{"Content-Type":"application/json"}})
         .then((response)=>{
@@ -86,7 +88,7 @@ function App() {
     {...prevTodo, completed: !prevTodo.completed}
     :prevTodo))
 
-    fetch(`http://localhost:8000/Todolist/${id}`,
+    fetch(URL`/${id}`,
       { method:"PATCH",
         headers:{"Content-Type":"application/json"}})
         .then((response)=>{
@@ -109,7 +111,7 @@ function App() {
   // },[todos])
 
   useEffect(()=>{
-    fetch('http://localhost:8000/Todolist',{
+    fetch(URL,{
       method:"GET",
       headers:{"Content-Type":"Application/JSON"}
     }).then((response)=>{ 
